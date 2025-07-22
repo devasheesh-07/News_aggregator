@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h2>Summary Results</h2>
+        </div>
+        <div class="card-body">
+            {% if summary %}
+                <p class="history-url"><strong>URL:</strong> <a href="{{ url }}" target="_blank">{{ url }}</a></p>
+                <div class="summary-text">
+                    {{ summary }}
+                </div>
+            {% endif %}
+            
+            {% if search_results %}
+                <h3>Search Results for "{{ query }}"</h3>
+                {% for result in search_results %}
+                    <div class="history-item">
+                        <a href="{{ result.url }}" class="history-url" target="_blank">{{ result.url }}</a>
+                        <div class="history-summary">{{ result.summary }}</div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
+            <div class="search-form">
+                <form method="POST" action="/search">
+                    <div class="form-group">
+                        <input type="text" name="query" class="form-control" placeholder="Search your summaries..." required>
+                    </div>
+                    <button type="submit" class="btn">Search</button>
+                </form>
+            </div>
+            
+            <a href="{{ url_for('index') }}" class="btn">Summarize Another</a>
+            <a href="{{ url_for('history') }}" class="btn">View History</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <title>Tech News Aggregator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tech News Aggregator</h1>
+            <p>Get summaries of tech articles and YouTube videos instantly</p>
+        </header>
+        
+        <nav class="nav-tabs">
+            <a href="{{ url_for('index') }}" class="{% if request.path == '/' %}active{% endif %}">Summarize</a>
+            <a href="{{ url_for('history') }}" class="{% if request.path == '/history' %}active{% endif %}">History</a>
+        </nav>
+        
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

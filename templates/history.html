@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h2>Your Summary History</h2>
+        </div>
+        <div class="card-body">
+            {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+            
+            {% if summaries %}
+                <div class="history-list">
+                    {% for item in summaries %}
+                        <div class="history-item">
+                            <a href="{{ item.url }}" class="history-url" target="_blank">{{ item.url }}</a>
+                            <div class="history-summary">{{ item.summary[:150] }}...</div>
+                            <a href="{{ url_for('results', summary=item.summary, url=item.url) }}" class="btn">View Full Summary</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No summaries found in your history.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

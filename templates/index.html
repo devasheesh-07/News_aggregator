@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h2>Enter URL to Summarize</h2>
+        </div>
+        <div class="card-body">
+            {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+            <form method="POST" action="/">
+                <div class="form-group">
+                    <input type="url" name="url" class="form-control" placeholder="Enter blog or YouTube URL" required>
+                </div>
+                <button type="submit" class="btn">Summarize</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
