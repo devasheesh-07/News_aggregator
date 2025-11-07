@@ -11,8 +11,11 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from urllib.parse import urlparse
-import nltk
-import os
+import nltk 
+from dotenv import load_dotenv
+import os 
+
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -41,7 +44,9 @@ initialize_nltk()
 #initialize_nltk()
 
 # MongoDB setup
-client = MongoClient('mongodb://localhost:27017/')
+# Connect to MongoDB Atlas
+MONGO_URI = os.getenv("MONGO_URI")
+client = MongoClient(MONGO_URI)
 db = client['tech_aggregator']
 summaries_collection = db['summaries']
 
