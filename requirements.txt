@@ -8,6 +8,7 @@ requests==2.25.1
 youtube-transcript-api==0.4.1
 sumy==0.8.1
 sentence-transformers==2.2.0
+huggingface_hub==0.13.4
 
 # ML/Numeric
 numpy==1.23.5
