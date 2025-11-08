@@ -1,3 +1,12 @@
+import collections
+import collections.abc
+collections.Sequence = collections.abc.Sequence
+
+from flask import Flask, render_template, request
+from sumy.parsers.plaintext import PlaintextParser
+# ... other imports
+
+
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bs4 import BeautifulSoup
