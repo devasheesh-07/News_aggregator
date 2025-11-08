@@ -1,5 +1,5 @@
-# Core packages
-flask==2.0.1
+# Core
+Flask==2.0.1
 pymongo==3.12.0
 beautifulsoup4==4.9.3
 requests==2.25.1
@@ -7,14 +7,12 @@ youtube-transcript-api==0.4.1
 sumy==0.8.1
 sentence-transformers==2.2.0
 
-# ML & Numerical
+# ML/Numeric
 numpy==1.23.5
 scikit-learn==1.0.2
 
-# Build tools (fixes pip/setuptools issues)
+# Build & deploy tools
 setuptools==65.5.0
 wheel==0.38.4
 pip==25.1.1
-
-# Deployment
 gunicorn==20.1.0
